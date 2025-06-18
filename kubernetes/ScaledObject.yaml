@@ -1,0 +1,38 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: ai-webapp-scaler
+  namespace: default
+spec:
+  scaleTargetRef:
+    name: ai-webapp
+    kind: Deployment
+    apiVersion: apps/v1
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  pollingInterval: 30  # Matches prediction interval
+  cooldownPeriod: 120  # 2 minutes cooldown
+  advanced:
+    horizontalPodAutoscalerConfig:
+      behavior:
+        scaleDown:
+          stabilizationWindowSeconds: 300  # 5 minute wait before scaling down
+          policies:
+          - type: Percent
+            value: 20  # Max 20% reduction at a time
+            periodSeconds: 60
+        scaleUp:
+          stabilizationWindowSeconds: 60  # 1 minute wait before scaling up
+          policies:
+          - type: Percent
+            value: 50  # Max 50% increase at a time
+            periodSeconds: 30
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: http://prometheus-kube-prometheus-prometheus.monitoring:9090
+        metricName: predicted_traffic
+        threshold: "1.0"  # Base threshold
+        activationThreshold: "1.2"  # Must exceed this to start scaling
+        query: |
+          avg_over_time(predicted_traffic{job="ai_traffic_predictor"}[1m])  # 1-minute average

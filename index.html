@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Museum - AIOps Web App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <section class="hero-section">
+        <nav class="navbar">
+            <div class="data-container">
+                <img src="imag1.jpg" class="Logo">
+                <div id="menu-time" class="menu-data animate__animated ">
+                    <a onclick="closebar()"><i id="close" class="size fa-solid fa-xmark"></i></a>
+                    <h2>National Council of Science Museums</h2>
+                    <a href="#">Information</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Tickets</a>
+                    <a href="#">Offers</a>
+                    <a href="#">ChatBot</a>
+                </div>
+                <a id="Menu-bar" onclick="menubar()"><i class="size-icon fa-solid fa-bars"></i></a>
+            </div>
+        </nav>
+
+        <div class="hero-section-content">
+            <div id="slider">
+                <figure>
+                    <img src="austin-fireworks.jpg" alt>
+                    <img src="taj-mahal_copy.jpg" alt>
+                    <img src="image2.jpg" alt>
+                    <img src="image3.jpg" alt>
+                    <img src="austin-fireworks.jpg" alt>
+                </figure>
+            </div>
+            <h1>WHO ARE WE??</h1>
+            <p style="color: plum;"><b>The largest network of Science Centres/Museums in the World...</b></p>
+            <h1>National Museum <i class="fa-solid fa-heart"></i></h1>
+        </div>
+
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </section>
+
+    <script src="https://kit.fontawesome.com/7103fc097b.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

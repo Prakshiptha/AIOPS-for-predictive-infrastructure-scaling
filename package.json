@@ -1,0 +1,15 @@
+{
+  "name": "ncsm-website",
+  "version": "1.0.0",
+  "description": "National Council of Science Museums Website with Metrics for AIOps",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "prakshiptha",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "prom-client": "^14.2.0"
+  }
+}

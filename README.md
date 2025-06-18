@@ -10,6 +10,7 @@ Tech Stack
 - Python (XGBoost)
 - Node.js (Express)
 - HPA + Prometheus Adapter
+
 How It Works
 1. Prometheus collects CPU, memory, request rate & network metrics.
 2. Python trains an XGBoost model on the data.

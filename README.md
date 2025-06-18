@@ -16,6 +16,7 @@ How It Works
 2. Python trains an XGBoost model on the data.
 3. The model predicts traffic and sends results to Prometheus via Pushgateway.
 4. HPA uses Prometheus Adapter to scale pods based on predictions.
+
 Features
 - AI-driven predictive autoscaling
 - Real-time monitoring via Grafana
